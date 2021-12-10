@@ -6,12 +6,15 @@ import csv
 from datetime import datetime
 import time
 from threading import Thread, Event
+import os
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 #puzzle = [0] * 25
 #row_constraints = [[0 for column in range(4)] for row in range(5)]
 #col_constraints = [[0 for column in range(4)] for row in range(5)]
+
+port = int(os.environ.get('PORT', 33507))
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -78,5 +81,5 @@ class handler(BaseHTTPRequestHandler):
         #message = "Hello, World! Here is a POST response"
         self.wfile.write(bytes(message, "utf8"))
 
-with HTTPServer(('', 8000), handler) as server:
+with HTTPServer(('', port), handler) as server:
     server.serve_forever()
