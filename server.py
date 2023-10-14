@@ -63,7 +63,8 @@ class handler(BaseHTTPRequestHandler):
 
         if not fs.puzzle_solved:
             print("now going to terminate thread as taking too long to solve ..")
-            fs.stop_event.set() 
+            fs.stop_event.set()
+            message="not solved"
         else:
             print("puzzle has been solved .. here is the solution")
             message =''
@@ -78,8 +79,8 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/html')
         self.end_headers()
 
-        message = "Hello, World! Here is a POST response"
-        message = data
+        #message = "Hello, World! Here is a POST response"
+        #message = data
         self.wfile.write(bytes(message, "utf8"))
 
 with HTTPServer(('', port), handler) as server:
