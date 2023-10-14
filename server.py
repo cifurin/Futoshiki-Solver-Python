@@ -79,6 +79,7 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
 
         message = "Hello, World! Here is a POST response"
+        message = data
         self.wfile.write(bytes(message, "utf8"))
 
 with HTTPServer(('', port), handler) as server:
