@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 #row_constraints = [[0 for column in range(4)] for row in range(5)]
 #col_constraints = [[0 for column in range(4)] for row in range(5)]
 
-port = int(os.environ.get('PORT', 33507))
+port = int(os.environ.get('PORT', 33508))
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
