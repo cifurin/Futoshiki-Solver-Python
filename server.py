@@ -78,7 +78,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/html')
         self.end_headers()
 
-        #message = "Hello, World! Here is a POST response"
+        message = "Hello, World! Here is a POST response"
         self.wfile.write(bytes(message, "utf8"))
 
 with HTTPServer(('', port), handler) as server:
